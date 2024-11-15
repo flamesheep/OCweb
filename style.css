@@ -18,6 +18,9 @@ body {
     margin-left: 20%;
     margin-right: 20%;
 }
+.container {
+    width: 100%; /* 確保容器能夠在手機上調整寬度 */
+}
 @media (max-width: 600px) {
     body {
         margin-left: 5%; /* 手機上調整左右邊界 */

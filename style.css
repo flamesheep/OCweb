@@ -24,7 +24,7 @@ body {
 @media (max-width: 600px) {
     body {
         margin-left: 5%; /* 手機上調整左右邊界 */
-        margin-right: 8%;
+        margin-right: 7%;
     }
 }
 /*標題*/

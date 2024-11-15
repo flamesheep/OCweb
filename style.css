@@ -18,7 +18,12 @@ body {
     margin-left: 20%;
     margin-right: 20%;
 }
-
+@media (max-width: 600px) {
+    body {
+        margin-left: 10%; /* 手機上調整左右邊界 */
+        margin-right: 10%;
+    }
+}
 /*標題*/
 h1 {
     text-align: left;

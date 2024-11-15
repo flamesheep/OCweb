@@ -19,12 +19,12 @@ body {
     margin-right: 20%;
 }
 .container {
-    width: 100%; /* 確保容器能夠在手機上調整寬度 */
+    width: 90%; /* 確保容器能夠在手機上調整寬度 */
 }
 @media (max-width: 600px) {
     body {
         margin-left: 5%; /* 手機上調整左右邊界 */
-        margin-right: 5%;
+        margin-right: 8%;
     }
 }
 /*標題*/

@@ -1,0 +1,123 @@
+hr {
+    border: 0;
+    border-top: 1px solid rgb(150, 150, 150);
+    height: 1px;
+    margin: 3% 0px 3% 0px;
+}
+  p {
+    margin: 0;
+    padding-bottom: 10px;
+    
+}  
+/*設定背景色、文字*/
+body {
+    background-color: #121212; /*深色底*/
+    color: rgb(230, 230, 230);/*白字*/
+    font-size: 17px;
+    font-family: Comic Arial, sans-serif; /*字體*/
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.container {
+    width: 100%; /* 確保容器能夠在手機上調整寬度 */
+}
+@media (max-width: 600px) {
+    body {
+        margin-left: 10%; /* 手機上調整左右邊界 */
+        margin-right: 10%;
+    }
+}
+/*標題*/
+h1 {
+    text-align: left;
+    font-size: 2.5em;
+    margin-top: 10%;
+}
+
+/*標籤*/
+.label {
+    background-color: rgba(23, 119, 209, 0.5);          
+    padding: 15px;
+    margin: 20px 20px 20px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.warning {
+    background-color: rgba(255, 0, 0, 0.2);          
+    padding: 15px;
+    margin: 20px;
+    border-radius: 8px;
+    font-size: 50px;
+    font-style: bold;
+    color: red;
+    text-align: center;
+}
+
+.note {
+    display: inline;
+    font-size: 10px;
+    background-color: #555555;
+    padding: 2px 5px 2px 5px;
+    border-radius: 4px;
+}
+
+/*敘述段落*/
+.description {
+    text-align: left;
+    margin: 20px auto;
+    width: 100%;
+    padding-bottom: 5px;
+    line-height: 1.5;
+}
+/*表格*/
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+th{
+    text-align: center;
+    font-style: bold;
+    width: 12% auto;
+    padding: 5px 0px;
+    border: 1px solid rgb(100, 100, 100);
+}
+th.R{
+    text-align: center;
+    font-style: bold;
+    width: 10%;
+    padding: 5px 0px;
+    border: 1px solid rgb(100, 100, 100);
+}
+td.A{
+    text-align: left;
+    width: 44%;
+    padding: 5px 20px;
+    border: 1px solid rgb(100, 100, 100);
+}
+td.B{
+    text-align: center;
+    width: 44%;
+    padding: 5px 0px;
+    border: 1px solid rgb(100, 100, 100);
+}
+td.R{
+    text-align: center;
+    width: 20%;
+    padding: 5px 0px;
+    border: 1px solid rgb(100, 100, 100);
+}
+/*圖片*/
+img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+/*超連結*/
+a {
+    color: #1777D1; /*顏色*/
+}
+a:visited {
+    color: #1777D1; /*已訪問過的超連結顏色*/
+}

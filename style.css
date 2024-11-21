@@ -1,0 +1,8 @@
+body {
+    background-color: #121212; /*深色底*/
+    color: rgb(230, 230, 230);/*白字*/
+    font-size: 16px;
+    font-family: Arial, sans-serif; /*字體*/
+    margin-left: 10%;
+    margin-right: 10%;
+}

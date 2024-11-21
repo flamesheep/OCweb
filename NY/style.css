@@ -4,17 +4,18 @@ hr {
     height: 1px;
     margin: 3% 0px 3% 0px;
 }
-  p {
+p {
     margin: 0;
     padding-bottom: 10px;
-    
-}  
-/*設定背景色、文字*/
-body {
+}
+body{
     background-color: #121212; /*深色底*/
-    color: rgb(230, 230, 230);/*白字*/
+    font-family: Arial, sans-serif; /*字體*/
+}
+/*設定背景色、文字*/
+.oc-content {
+    color: #e6e6e6;/*白字*/
     font-size: 17px;
-    font-family: Comic Arial, sans-serif; /*字體*/
     margin-left: 20%;
     margin-right: 20%;
 }
@@ -33,7 +34,6 @@ h1 {
     font-size: 2.5em;
     margin-top: 10%;
 }
-
 /*標籤*/
 .label {
     background-color: rgba(23, 119, 209, 0.5);          
@@ -42,7 +42,6 @@ h1 {
     border-radius: 8px;
     font-size: 16px;
 }
-
 .warning {
     background-color: rgba(255, 0, 0, 0.2);          
     padding: 15px;
@@ -53,7 +52,6 @@ h1 {
     color: red;
     text-align: center;
 }
-
 .note {
     display: inline;
     font-size: 10px;
@@ -61,7 +59,6 @@ h1 {
     padding: 2px 5px 2px 5px;
     border-radius: 4px;
 }
-
 /*敘述段落*/
 .description {
     text-align: left;
@@ -107,6 +104,25 @@ td.R{
     padding: 5px 0px;
     border: 1px solid rgb(100, 100, 100);
 }
+/*色票&色碼*/
+.colored-chart {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1em;
+    vertical-align: middle;
+    color: var(--color, white);/*預設文字白色*/
+}
+/* 方形色塊樣式 */
+.colored-chart::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color, white); /*預設方塊白色*/
+    margin-left: 0.5em;
+    margin-right: 0.3em;
+    font-size: 1em;
+}
 /*圖片*/
 img {
     width: 100%;
@@ -115,9 +131,46 @@ img {
     border-radius: 4px;
 }
 /*超連結*/
-a {
-    color: #1777D1; /*顏色*/
+a ,a:visited {
+    color: #97CBFF; /*已訪問過的超連結顏色*/
 }
-a:visited {
-    color: #1777D1; /*已訪問過的超連結顏色*/
+/* 設定折疊按鈕樣式 */
+.collapsible {
+    z-index: 1080 !important;
+    background-color: #777;
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    top: 10px;
+    position: fixed;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+/* 折疊內容的樣式 */
+.content {
+    z-index: 1080 !important;
+    width: 100px;
+    height: calc(100dvh - 10%);
+    padding: 0 10px;
+    top: 60px;
+    transform: translateX(-110%); /*初始狀態：畫面外*/
+    display: block;
+    overflow: hidden;
+    background-color: rgba(85, 85, 85, 0.5);
+    color: #e6e6e6;
+    border: 0;
+    position: fixed; /* 固定位置 */
+    transition: transform 0.3s ease; /*平滑過渡效果*/
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.content h4 {
+    cursor: pointer;
+}
+/*當顯示時添加active樣式*/
+.content.active {
+    transform: translateX(0); /* 滑入畫面 */
 }

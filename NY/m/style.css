@@ -1,14 +1,28 @@
-/*超連結*/
+* {
+    box-sizing: border-box; /* 確保 padding 和 border 不會超出元素寬度 */
+    max-width: 100%;
+}
 a, a:visited {
     color: #97CBFF; /*已訪問過的超連結顏色*/
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* 禁止水平滾動 */
+}
 body {
     background-color: #121212; /*深色底*/
+    font-family: Arial, sans-serif; /*字體*/
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* 防止水平滾動 */
+    padding: 0% 5%;
+}
+.oc-content {
     color: rgb(230, 230, 230);/*白字*/
     font-size: 16px;
-    font-family: Arial, sans-serif; /*字體*/
-    margin-left: 10%;
-    margin-right: 10%;
+    overflow-x: hidden;    
 }
 h1 {
     text-align: left;
@@ -32,34 +46,6 @@ p {
     padding: 2px 5px 2px 5px;
     border-radius: 4px;
 }
-.description b{
-    background: #454545;
-    padding: 0px 3px;
-    border-radius:2px;
-}
-/*標籤*/
-.label {
-    background-color: rgba(23, 119, 209, 0.5);          
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    text-align: center;
-}
-.warning {
-    background-color: rgba(255, 0, 0, 0.5);          
-    padding: 15px;
-    margin: auto;
-    border-radius: 8px;
-    font-size: 30px;
-    font-style: bold;
-    color: red;
-    text-align: center;
-/*圖片*/
-img {
-    width: 100%;
-    border-radius: 4px;
-    margin: auto;
-}
 /*色票&色碼*/
 .colored-chart {
     display: inline-flex;
@@ -79,7 +65,37 @@ img {
     margin-right: 0.3em;
     font-size: 1em;
 }
-/*NPC區間排版*/
+.description b{
+    background: #454545;
+    padding: 2px 3px;
+    border-radius:2px;
+}
+/*標籤*/
+.label {
+    background-color: rgba(23, 119, 209, 0.5);          
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+.warning {
+    background-color: rgba(255, 0, 0, 0.5);          
+    padding: 15px;
+    margin: auto;
+    border-radius: 8px;
+    font-size: 30px;
+    font-style: bold;
+    color: white;
+    text-align: center;
+}
+/*圖片*/
+img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px;
+    margin: auto;
+}
+/*NPC排版*/
 .npc hr{
     border: 0;
     border-top: 1px solid rgb(150, 150, 150);
@@ -89,3 +105,55 @@ img {
 .npc h3{
     margin-bottom: 0.2em;
 }
+/* 設定折疊按鈕樣式 */
+.collapsible {
+    z-index: 1080 !important;
+    background-color: #777;
+    color: white;
+    font-size: larger;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: 10px;
+    right: 10px;
+    position: fixed;
+    border-radius: 5px;
+  }
+/* 折疊內容的樣式 */
+.content {
+    position: fixed;
+    top: 40px;
+    right: 0;
+    width: 95px;
+    height: calc(100dvh - 7%);
+    max-width: 100%;
+    transform: translateX(100%); /*初始狀態：畫面外*/
+    display: block;
+    overflow-x: hidden;
+    padding: 0 10px;
+
+    /*視覺效果與樣式*/
+    background-color: rgba(85, 85, 85, 0.9);
+    color: #e6e6e6;
+    border: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    /*動畫與過渡 */
+    transition: transform 0.3s ease; /*平滑過渡*/
+
+    /* 層疊順序 */
+    z-index: 1080 !important;
+  }
+.content h4 {
+    cursor: pointer;
+    font-size: 15px;
+    text-align: right;
+  }
+/*當顯示時添加active樣式*/
+.content.active {
+    transform: translateX(0); /* 滑入畫面 */
+    right: 10px;
+    max-width: 100%;
+  }

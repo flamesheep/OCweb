@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>南緣</title>
 </head>
 <body>
-
+    <button class="collapsible">≡</button>
+        <div class="content">
+            <h4 id="notice-link">注意事項</h4>
+            <h4 id="worldview-link">世界觀簡述</h4>
+            <h4 id="character-link">角色</h4>
+            <h4 id="timeline-link">時間軸</h4>
+            <h4 id="npc-link">其他NPC</h4>
+            <h4 id="example-link">範文參考</h4>
+            <h4 id="r18-link">R18表格</h4>
+        </div>   
+<div class="oc-content">
     <h1>南緣</h1>
     <hr>
 
@@ -16,11 +25,10 @@
         建議以電腦閱覽
     </div>
 
-    <div>
+    <div id="notice">
         <h2><b>【注意事項】</b></h2>
         <p>➢<b>設定持續完善中，有任何疑惑都可以詢問，也可直接拒</b></p>
-        <p>➢親媽比較要求標點符號/贅字等基本功，介意可退<br>
-　刪節號後只接受引號/雙引號兩種標點，<b>「……！」「……。」「……？」等皆會要求刪改。</b></p>
+        <p>➢親媽比較要求標點符號/贅字等基本功，介意可退<br>　刪節號後只接受引號/雙引號兩種標點，<b>「……！」「……。」「……？」等皆會要求刪改。</b></p>
         <p>請使用繁體中文，第三人稱書寫，簡字、非台灣慣用語、自創詞、錯字可能會請您修改<br>
           另外錯字的話不要太過分的多就沒關係<del>因為我也會</del></p>
       <p>➢若無要求<b><u><font color = red>請勿</font>描寫主線劇情、描寫BE情節、照抄設定、換句話說、血腥獵奇相關</u></b></p>
@@ -30,13 +38,14 @@
         <p>➢我成年了（好）</p>
     </div>
 <hr>
-    <div>
+    <div id="worldview">
         <h2><b>【世界觀簡述】</b></h2>
         <p>Tag：現代</p>
         <p>可以當作是台灣版的GTA，路上可能隨時發生搶劫殺人槍戰，<b>不用有宮廟元素。</b><br>縣市和國家名稱可以直接搬現實的來用，考據的部分我也不大了解所以不用太講究沒關係。<br>（但簡單的相對地理位置還是要正確，不要讓台北跑到高雄下面，或是英國在台灣隔壁之類的）</p>
     </div>
 <hr>
     <!--角色表格-->
+    <div id="character">
     <table>
         <h2><b>【角色】</b></h2>
         <thead>
@@ -46,8 +55,8 @@
         </thead>
         <thead>
             <th>名稱</th>
-            <td class="B">南</td>
-            <td class="B">黑澤 緣</td>
+            <td class="B">南<br><span class="colored-chart" style="--color: #B35D00;">#B35D00</span></td>
+            <td class="B">黑澤 緣<br><span class="colored-chart" style="--color: #6A4C9C">#6A4C9C</span></h3></td>
         </thead>
         <thead>
             <th>性別</th>
@@ -125,7 +134,9 @@
             <td class="A">跟柊也是青梅竹馬，因此左邊那位很常找柊也麻煩</td>
         </thead>
     </table>
+    </div>
     <!--時間軸表格-->
+    <div id="timeline">
     <table>
         <h2><b>【時間軸】</b></h2>
         <p>註：此區提到的文章皆為本人創作</p>
@@ -177,7 +188,9 @@
             <td class="A"><p>告白雖然是一時衝動但不後悔，儘管南時不時的赤裸騷擾讓他有點難以接受（害臊的部分）但既然答應要當人家女朋友了就要做到最好，因此正努力嘗試跟上南的節奏</td>
         </thead>
     </table>
+    </div>
     <!--NPC表格-->
+    <div id="npc">
     <table>
         <h2><b>【其他NPC】</b></h2>
         <p>註：此區提到的角色與主線高度相關，若無把握可不做描寫。</p>
@@ -226,16 +239,20 @@
     <br>*關於高坂柊也<br>
     <font color = #121212>問就是有暗戀大小姐，曾想過如果緣終身未嫁娶就要一輩子陪在她身邊，成為如同家人般的存在</font>（←反白可閱）<br>
     ◢<a href="https://docs.google.com/document/u/0/d/1gqcGY7bt2hqIMywDx_oCrsDcjvQpNro_xI9vLt_Ttcw/edit">你不知道的，關於保鑣的事</a>
+    </div>
 <hr>
+    <div id="example">
     <h2><b>【範文參考】</b><span class="note">未標註作者即為自著</span></h2>
     <p><a href="https://telegra.ph/%E8%B2%A0%E8%B2%AC-06-13">《負責》</a></p>
     <p><a href="https://telegra.ph/%E5%8E%9F%E6%9C%AC%E8%A6%81%E5%AF%AB%E8%90%AC%E8%81%96%E7%AF%80%E7%B5%90%E6%9E%9C%E8%AE%8A%E6%88%90%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BB%80%E9%BA%BC%E6%9D%B1%E6%9D%B1-10-31">標題有點長</a> ©嗄董</p>
     <p><a href="https://paste.plurk.com/show/84mcrSXr51HzdWhHZbGc/">南X黑澤緣</a> ©帝釋 | <span class="note">早安吻</p>
+    </div>
 <hr>
 <div class="warning">
     ！以下R18，未成年/介意請迴避！
 </div>
     <!--R18表格-->
+    <div id="r18">
     <table>
         <h2><b>【R18表格】</b></h2>
         <thead>
@@ -357,7 +374,8 @@
     【需討論】：反攻、SM、攻方過往的性事描寫、藥物、道具、失禁、年操<br>
     【大歡迎】：壓小腹、穿衣進行
     <h3><b>【R18範文參考】</b><span class="note">未標註作者即為自著</span></h3>
-
-
+</div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

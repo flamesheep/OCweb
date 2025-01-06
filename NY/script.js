@@ -22,7 +22,7 @@ if (coll) {
     });
 }
 
-// 跳轉功能
+// 標題跳轉功能
 const links = document.querySelectorAll('.content h4');
 links.forEach(link => {
   link.addEventListener('click', function () {
@@ -34,17 +34,7 @@ links.forEach(link => {
         behavior: 'smooth',
         block: 'start'
       });
-
-      // 調整偏移量，使其能夠拉到最下方
-      const targetRect = targetElement.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // 如果元素已經接近視窗底部，則滾動到最底部
-      if (targetRect.bottom < windowHeight) {
-        window.scrollBy(0, windowHeight - targetRect.bottom);
-      } else {
-        window.scrollBy(0, -100); // 可根據需要調整此值
-      }
+      window.scrollBy(0,-10);
     }
   });
 });

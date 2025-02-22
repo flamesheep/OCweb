@@ -1,52 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
-    fetch("Articles/index.json")
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP 錯誤！狀態碼：${response.status}`);
-        }
-        return response.json();
-    })
-    .then(fileList => {
-        const container = document.getElementById("article-container");
-        if (!container) {
-            throw new Error("找不到 ID 為 article-container 的元素");
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    // 共用跳轉函數
+    const navigateToArticle = (element) => {
+        const titleText = element.textContent.trim();
+        const fileName = `${titleText}.html`;
+        window.location.href = `Articles/${fileName}`;
+    };
 
-            fileList.files.forEach(file => {
-                fetch(file)
-                    .then(response => response.json())
-                    .then(data => {
-                        data.articles.forEach(article => {
-                            const articleDiv = document.createElement("div");
-                            articleDiv.classList.add("article");
-
-                            const title = document.createElement("h2");
-                            title.textContent = article.title;
-                            title.addEventListener("click", () => {
-                                content.style.display = content.style.display === "none" ? "block" : "none";
-                            });
-
-                            const date = document.createElement("p");
-                            date.textContent = `日期：${article.date}`;
-                            date.classList.add("tags");
-
-                            const tags = document.createElement("p");
-                            tags.textContent = `標籤：${article.tags.join(", ")}`;
-                            tags.classList.add("tags");
-
-                            const content = document.createElement("p");
-                            content.textContent = article.content;
-                            content.style.display = "none";
-
-                            articleDiv.appendChild(title);
-                            articleDiv.appendChild(date);
-                            articleDiv.appendChild(tags);
-                            articleDiv.appendChild(content);
-                            container.appendChild(articleDiv);
-                        });
-                    })
-                    .catch(error => console.error(`載入 ${file} 失敗：`, error));
+    // 為所有 .article-title 綁定事件
+    const articleTitles = document.getElementsByClassName('article-title');
+    if (articleTitles.length > 0) {
+        Array.from(articleTitles).forEach((articleTitle) => {
+            articleTitle.addEventListener('click', () => {
+                navigateToArticle(articleTitle);
             });
-        })
-        .catch(error => console.error("載入文章列表失敗：", error));
+        });
+    } else {
+        console.error('未找到 .article-title 元素');
+    }
 });

@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetch("Articles/index.json")
-        .then(response => response.json())
-        .then(fileList => {
-            const container = document.getElementById("articles-container");
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP 錯誤！狀態碼：${response.status}`);
+        }
+        return response.json();
+    })
+    .then(fileList => {
+        const container = document.getElementById("article-container");
+        if (!container) {
+            throw new Error("找不到 ID 為 article-container 的元素");
+        }
 
             fileList.files.forEach(file => {
                 fetch(file)

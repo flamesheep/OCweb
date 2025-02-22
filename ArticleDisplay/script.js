@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("Articles/index.json")
         .then(response => response.json())
         .then(fileList => {
-            const container = document.getElementById("articles");
+            const container = document.getElementById("articles-container");
 
             fileList.files.forEach(file => {
                 fetch(file)

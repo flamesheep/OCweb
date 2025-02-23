@@ -55,9 +55,10 @@ a:visited{
     color: #cccccc;
     text-decoration: underline;
     text-underline-offset: 3px;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 800;
     cursor: pointer;
+    word-wrap: break-word;
 }
 .article-title:hover{
     color: #bbbbbb;
@@ -65,27 +66,44 @@ a:visited{
 .tag{
     background-color: rgba(125, 171, 231, 0.5);
     display: inline;
-    font-size: 18px;
+    font-size: 16px;
     color: #ffffff;
     padding: 2px 5px;
     border-radius: 5px;
+    white-space: nowrap;
 }
 .r18{
     background-color: rgba(220, 94, 94, 0.5);
     display: inline;
-    font-size: 18px;
+    font-size: 16px;
     color: #ffffff;
     padding: 2px 5px;
     border-radius: 5px;
+    white-space: nowrap;
 }
 .item{
     background-color: rgba(193, 193, 69, 0.5);
     display: inline;
-    font-size: 18px;
+    font-size: 16px;
     color: #ffffff;
     padding: 2px 5px;
     border-radius: 5px;
+    white-space: nowrap;
 }
 .date{
     color:#cccccc;
+}
+.list {
+    width: 250px;
+    height: 50px;
+    padding-left: 12px;
+    left: 30%;
+    background-color: #77777777;
+    color: white;
+    border: none;
+    font-size: x-large;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1080 !important;
+    position: fixed;
 }

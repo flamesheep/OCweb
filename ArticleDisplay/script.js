@@ -1,85 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 共用跳轉函數
-    const navigateToArticle = (element) => {
-        const titleText = element.textContent.trim();
-        const fileName = `${titleText}.html`;
-        window.location.href = `Articles/${fileName}`;
-    };
+  // 獲取所有按鈕
+  const buttons = document.querySelectorAll('.article-title');
 
-    // 為所有 .article-title 綁定事件
-    const articleTitles = document.getElementsByClassName('article-title');
-    if (articleTitles.length > 0) {
-        Array.from(articleTitles).forEach((articleTitle) => {
-            articleTitle.addEventListener('click', () => {
-                navigateToArticle(articleTitle);
-            });
-        });
-    } else {
-        console.error('未找到 .article-title 元素');
-    }
-});
-
-//測試區
-document.addEventListener('DOMContentLoaded', () => {
-    // 获取所有按钮
-    const buttons = document.querySelectorAll('.json-button');
-  
-    // 为每个按钮绑定点击事件
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const fileName = button.textContent.trim() + '.json'; // 获取按钮文字并拼接 .json
-        openJsonInNewTab(fileName);
-      });
+  // 為每個按鈕綁定點擊事件
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const fileName = button.textContent.trim() + '.json'; // 获取按钮文字并拼接 .json
+      openJsonInNewTab(fileName);
     });
-  
-    // 在新标签页中打开 JSON 文件
-    const openJsonInNewTab = (fileName) => {
-      const jsonUrl = `Articles/${fileName}`; // JSON 文件路径
-      const newTab = window.open('', '_blank'); // 打开新标签页
-  
-      // 加载 JSON 文件
-      fetch(jsonUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          // 在新标签页中显示 JSON 内容
-          newTab.document.write(`
-            <html>
-              <head>
-                <title>${data.title || 'JSON 内容'}</title>
-                <style>
-                  body {
-                    font-family: Arial, sans-serif;
-                    padding: 20px;
-                    background-color: #f9f9f9;
-                  }
-                  h1 {
-                    color: #333;
-                  }
-                  p {
-                    color: #555;
-                    line-height: 1.6;
-                  }
-                </style>
-              </head>
-              <body>
-                <h1>${data.title || '未找到标题'}</h1>
-                <p><strong>作者:</strong> ${data.author || '未知'}</p>
-                <p><strong>日期:</strong> ${data.date || '未知'}</p>
-                <p>${data.content || '未找到内容'}</p>
-              </body>
-            </html>
-          `);
-          newTab.document.close(); // 关闭文档写入
-        })
-        .catch(error => {
-          console.error('Error loading JSON:', error);
-          newTab.document.write('<p>无法加载 JSON 文件。</p>');
-          newTab.document.close();
-        });
-    };
   });
+
+  const openJsonInNewTab = (fileName) => {
+    const jsonUrl = `Articles/${fileName}`; // JSON 文件路径
+    const newTab = window.location('Articles/template.html', '_blank');
+
+    // 加載JSON文件
+    fetch(jsonUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // 等待新页面加载完成
+        newTab.onload = () => {
+          // 获取新页面的 DOM 元素
+          const header = newTab.document.querySelector('.content h1');
+          const tag = newTab.document.querySelector('.content .tag');
+          const contentContainer = newTab.document.querySelector('.content');
+
+          // 填充 JSON 数据到模板中
+          if (header) header.textContent = data.title || '未找到標題';
+          if (tag) tag.textContent = data.tag || '未找到標籤';
+
+          // 将 content 按换行符分割成数组，并用 <p> 标签包裹每段内容
+          if (contentContainer) {
+            const paragraphs = data.content.split('～');
+            const htmlContent = paragraphs.map(paragraph => `<p>${paragraph}</p>`).join('');
+            contentContainer.innerHTML += htmlContent; // 将段落内容插入到 .content 中
+          }
+        };
+      })
+      .catch(error => {
+        console.error('Error loading JSON:', error);
+        newTab.document.write('<p>无法加载 JSON 文件。</p>');
+        newTab.document.close();
+      });
+  };
+});

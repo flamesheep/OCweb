@@ -107,3 +107,42 @@ a:visited{
     z-index: 1080 !important;
     position: fixed;
 }
+
+/*測試區*/
+#buttons {
+    margin-bottom: 20px;
+  }
+.json-button {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.json-button:hover {
+  background-color: #0056b3;
+}
+
+#json-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#json-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#json-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}

@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <button class="home">
-    <a href="../index.html">
-      ←<span class="text">回首頁</span>
-    </a>
-  </button>
-  <body>
-  <div class="content">
-    <header><h1></h1></header>
-        <span class="tag"></span><br>
-        <span class="ad">廣告位出租°∀°</span>
-  </div>      
-    </body>
-</html>
+{
+    "date": "2025-01-25" ,
+    "title": "落難" ,
+    "tag": "BL/原向" ,
+    "content": ""
+}
